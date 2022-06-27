@@ -1,0 +1,7 @@
+{
+  "name": "Task_Manger",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}
