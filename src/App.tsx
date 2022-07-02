@@ -21,6 +21,8 @@ import '@ionic/react/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
+import 'bulma/css/bulma.min.css'
+import AddTask from './pages/AddTask';
 
 setupIonicReact();
 
@@ -34,6 +36,7 @@ const App: React.FC = () => (
         <Route exact path="/">
           <Redirect to="/home" />
         </Route>
+        <Route component={AddTask} exact path='/add-task' />
       </IonRouterOutlet>
     </IonReactRouter>
   </IonApp>
