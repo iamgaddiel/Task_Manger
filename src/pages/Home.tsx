@@ -11,7 +11,8 @@ const Home: React.FC = () => {
   const [_, setSearchParams] = useCustomReducer()
 
   const handleSearch = (param: any) => {
-    setSearchParams(param)
+    // setSearchParams(param)
+    //....
   }
 
   return (
