@@ -3,11 +3,11 @@ import { IonCard, IonIcon, IonItem, IonList, IonText, IonTitle } from '@ionic/re
 import { person, trashOutline } from 'ionicons/icons'
 
 type propType = {
-  taskId: string
+  taskId: number
   title: string
   date: string
   time: string
-  action: (id: string) => void
+  action: (id: number) => void
 }
 const TaskItem = ({ taskId, title, date, time, action }: propType) => {
   return (

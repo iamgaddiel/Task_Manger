@@ -23,23 +23,40 @@ import '@ionic/react/css/display.css';
 import './theme/variables.css';
 import 'bulma/css/bulma.min.css'
 import AddTask from './pages/AddTask';
+import { useEffect, useState } from 'react';
+import { Storage } from '@capacitor/storage'
+import TaskContextProvider from './contexts/TaskContext';
 
 setupIonicReact();
 
-const App: React.FC = () => (
-  <IonApp>
-    <IonReactRouter>
-      <IonRouterOutlet>
-        <Route exact path="/home">
-          <Home />
-        </Route>
-        <Route exact path="/">
-          <Redirect to="/home" />
-        </Route>
-        <Route component={AddTask} exact path='/add-task' />
-      </IonRouterOutlet>
-    </IonReactRouter>
-  </IonApp>
-);
+const App: React.FC = () => {
+
+  useEffect(
+    () => {
+      // uncomment to clear Storage
+      // Storage.clear()
+    },
+    []
+  )
+
+  return (
+    <TaskContextProvider>
+      <IonApp>
+        <IonReactRouter>
+          <IonRouterOutlet>
+            <Route exact path="/home">
+              <Home />
+            </Route>
+            <Route exact path="/">
+              <Redirect to="/home" />
+            </Route>
+            <Route component={AddTask} exact path='/add-task' />
+          </IonRouterOutlet>
+        </IonReactRouter>
+      </IonApp>
+    </TaskContextProvider>
+
+  )
+}
 
 export default App;

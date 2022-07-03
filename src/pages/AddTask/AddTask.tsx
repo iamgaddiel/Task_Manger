@@ -1,9 +1,10 @@
 import { IonBackButton, IonButton, IonButtons, IonContent, IonHeader, IonInput, IonLabel, IonPage, IonText, IonTitle, IonToolbar } from '@ionic/react'
 import { document } from 'ionicons/icons'
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { useHistory } from 'react-router'
-import { TaskType } from '../../utils/types'
-
+import { uuid } from 'uuidv4'
+import { TaskContext } from '../../contexts/TaskContext'
+import { TaskType } from '../../@types/tasks'
 
 
 
@@ -13,22 +14,15 @@ const AddTask = () => {
     const [time, setTime] = useState("")
     const [date, setDate] = useState("")
     const history = useHistory()
+    const { saveTask } = useContext(TaskContext)
 
 
-    const handleSaveTask = () => {
-        const data = { title, time, date, active: true }
+    const handleSaveTask = async () => {
 
-        let res = localStorage.getItem('tasks')
+        const data: TaskType = { id: Math.random(), title, time, date, active: true }
 
-        if (res !== null) {
-            const tasks: TaskType[] = JSON.parse(res)
-            localStorage.setItem('tasks', JSON.stringify([...tasks, data]))
-        }
-        else {
-            localStorage.setItem('tasks', JSON.stringify([data]))
-        }
+        saveTask(data)
         history.push("/")
-
     }
 
     return (

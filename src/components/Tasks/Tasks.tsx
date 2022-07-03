@@ -2,31 +2,19 @@ import { IonIcon, IonList, IonRouterLink, IonText } from '@ionic/react'
 import { addCircleOutline } from 'ionicons/icons'
 import './Task.css'
 import TaskItem from '../TaskItem'
-import { useEffect, useState } from 'react'
-import { TaskType } from '../../utils/types'
+import { useContext, useEffect, useState } from 'react'
+import { Storage } from '@capacitor/storage'
+import { TaskContext } from '../../contexts/TaskContext'
+
 
 
 const Tasks = () => {
-    const [tasks, setTasks] = useState<TaskType[]>([])
+    // const [allTasks, setTasks] = useState<TaskType[]>([])
+    const { tasks } = useContext(TaskContext)
 
-    const handleTaskDelete = (id: string) => {
+    const handleTaskDelete = (id: number) => {
         console.log(id)
     }
-
-    useEffect(
-        () => {
-            let res = localStorage.getItem('tasks')
-
-            if (res !== null) {
-                const allTasks: TaskType[] = JSON.parse(res)
-                setTasks(allTasks)
-            }
-            else {
-                setTasks([])
-            }
-        },
-        []
-    )
 
     return (
         <section className="mt-6">
@@ -37,7 +25,7 @@ const Tasks = () => {
                 </IonRouterLink>
             </div>
 
-            <section className="task_list mt-3">
+            <section className="mt-3">
                 <IonList lines='none'>
                     {
                         tasks.length === 0 ?
@@ -46,7 +34,7 @@ const Tasks = () => {
                             </div> :
                             tasks.map((task, index) => (
                                 <TaskItem
-                                    taskId={`${index}`}
+                                    taskId={task.id}
                                     action={handleTaskDelete}
                                     key={index}
                                     title={task.title}

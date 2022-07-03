@@ -1071,6 +1071,11 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
+"@capacitor/android@3.6.0":
+  version "3.6.0"
+  resolved "https://registry.yarnpkg.com/@capacitor/android/-/android-3.6.0.tgz#60438a0614415c7c242dda48a031cd45335e067a"
+  integrity sha512-X6n0OLy7BE3c6qfVuL7UYyq/aIwEsqIAqtyDOwMdj5k+P1rLQVsGaWERXUtC0BGeoKBD5YgbWiyKwAwg5Spjdg==
+
 "@capacitor/app@1.1.1":
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/@capacitor/app/-/app-1.1.1.tgz#bde7202faad1b47c4ae2c4a622285d7569384c5e"
@@ -1119,6 +1124,11 @@
   version "1.0.8"
   resolved "https://registry.yarnpkg.com/@capacitor/status-bar/-/status-bar-1.0.8.tgz#a783561fb5815b30f3e75dd95c87e00aaff5450b"
   integrity sha512-lhxa70K6vg0QjdddbT9RqFLfQ9a0Fk1OVE54MhUH30DWymv4h2LrC+mJgH6JS46WQbR2UCHRymfmVCq1PS2Qiw==
+
+"@capacitor/storage@^1.2.5":
+  version "1.2.5"
+  resolved "https://registry.yarnpkg.com/@capacitor/storage/-/storage-1.2.5.tgz#48206869cbbf1404fcdbb5c440a882140bd3abd8"
+  integrity sha512-pWhnw4U7wN/zFV4lA4BLMypSufTktCbk548Yk4whSb0KAq3R0mLfSubRIHkGdcPqQWCsM6g/zUuszurhz6ncWQ==
 
 "@csstools/normalize.css@*":
   version "12.0.0"
@@ -2337,6 +2347,16 @@
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/@types/trusted-types/-/trusted-types-2.0.2.tgz#fc25ad9943bcac11cceb8168db4f275e0e72e756"
   integrity sha512-F5DIZ36YVLE+PN+Zwws4kJogq47hNgX3Nx6WyDJ3kcplxyke3XIzB8uK5n/Lpm1HBsbGzd6nmGehL8cPekP+Tg==
+
+"@types/uuid4@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@types/uuid4/-/uuid4-2.0.0.tgz#40a5376b7cbfde4f905403ab0e10d32b81aff341"
+  integrity sha512-lIeYnpveYni+lqo9X10IuFI11n/3l6RjxQvlVXVcijLp/w3jj+1CGX/dRIRJVtbO5ta6xYA9Xd3QqWGwUMvvng==
+
+"@types/uuid@8.3.4":
+  version "8.3.4"
+  resolved "https://registry.yarnpkg.com/@types/uuid/-/uuid-8.3.4.tgz#bd86a43617df0594787d38b735f55c805becf1bc"
+  integrity sha512-c/I8ZRb51j+pYGAu5CrFMRxqZ2ke4y2grEBO5AUjgSkSk+qT2Ea+OdWElz/OiMf5MNpn2b17kuVBwZLQJXzihw==
 
 "@types/ws@^8.5.1":
   version "8.5.3"
@@ -9586,10 +9606,23 @@ utils-merge@1.0.1:
   resolved "https://registry.yarnpkg.com/utils-merge/-/utils-merge-1.0.1.tgz#9f95710f50a267947b2ccc124741c1028427e713"
   integrity sha512-pMZTvIkT1d+TFGvDOqodOclx0QWkkgi6Tdoa8gC8ffGAAqz9pzPTZWAybbsHHoED/ztMtkv/VoYTYyShUn81hA==
 
-uuid@^8.3.2:
+uuid4@^2.0.2:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/uuid4/-/uuid4-2.0.2.tgz#d33169f4a8fe84b217f50a0f28f971cd9ff56216"
+  integrity sha512-TzsQS8sN1B2m9WojyNp0X/3JL8J2RScnrAJnooNPL6lq3lA02/XdoWysyUgI6rAif0DzkkWk51N6OggujPy2RA==
+
+uuid@8.3.2, uuid@^8.3.2:
   version "8.3.2"
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-8.3.2.tgz#80d5b5ced271bb9af6c445f21a1a04c606cefbe2"
   integrity sha512-+NYs2QeMWy+GWFOEm9xnn6HCDp0l7QBD7ml8zLUmJ+93Q5NF0NocErnwkTkXVFNiX3/fpC6afS8Dhb/gz7R7eg==
+
+uuidv4@^6.2.13:
+  version "6.2.13"
+  resolved "https://registry.yarnpkg.com/uuidv4/-/uuidv4-6.2.13.tgz#8f95ec5ef22d1f92c8e5d4c70b735d1c89572cb7"
+  integrity sha512-AXyzMjazYB3ovL3q051VLH06Ixj//Knx7QnUSi1T//Ie3io6CpsPu9nVMOx5MoLWh6xV0B9J0hIaxungxXUbPQ==
+  dependencies:
+    "@types/uuid" "8.3.4"
+    uuid "8.3.2"
 
 v8-compile-cache@^2.0.3:
   version "2.3.0"
