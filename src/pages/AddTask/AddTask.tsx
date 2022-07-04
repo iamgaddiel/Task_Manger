@@ -18,9 +18,7 @@ const AddTask = () => {
 
 
     const handleSaveTask = async () => {
-
         const data: TaskType = { id: Math.random(), title, time, date, active: true }
-
         saveTask(data)
         history.push("/")
     }

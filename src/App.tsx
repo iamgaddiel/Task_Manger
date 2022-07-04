@@ -26,6 +26,7 @@ import AddTask from './pages/AddTask';
 import { useEffect, useState } from 'react';
 import { Storage } from '@capacitor/storage'
 import TaskContextProvider from './contexts/TaskContext';
+import TaskView from './pages/TaskView';
 
 setupIonicReact();
 
@@ -51,6 +52,7 @@ const App: React.FC = () => {
               <Redirect to="/home" />
             </Route>
             <Route component={AddTask} exact path='/add-task' />
+            <Route component={TaskView} exact path='/task/id' />
           </IonRouterOutlet>
         </IonReactRouter>
       </IonApp>

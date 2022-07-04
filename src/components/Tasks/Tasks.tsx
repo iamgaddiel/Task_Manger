@@ -2,19 +2,14 @@ import { IonIcon, IonList, IonRouterLink, IonText } from '@ionic/react'
 import { addCircleOutline } from 'ionicons/icons'
 import './Task.css'
 import TaskItem from '../TaskItem'
-import { useContext, useEffect, useState } from 'react'
-import { Storage } from '@capacitor/storage'
+import { useContext } from 'react'
 import { TaskContext } from '../../contexts/TaskContext'
 
 
 
 const Tasks = () => {
     // const [allTasks, setTasks] = useState<TaskType[]>([])
-    const { tasks } = useContext(TaskContext)
-
-    const handleTaskDelete = (id: number) => {
-        console.log(id)
-    }
+    const { tasks, deleteTask,  } = useContext(TaskContext)
 
     return (
         <section className="mt-6">
@@ -35,7 +30,7 @@ const Tasks = () => {
                             tasks.map((task, index) => (
                                 <TaskItem
                                     taskId={task.id}
-                                    action={handleTaskDelete}
+                                    action={deleteTask}
                                     key={index}
                                     title={task.title}
                                     date={task.date}

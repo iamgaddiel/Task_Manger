@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import { TaskContextType, TaskType } from "../@types/tasks";
 import { Storage } from '@capacitor/storage'
 
@@ -7,13 +7,31 @@ import { Storage } from '@capacitor/storage'
 
 export const TaskContext = createContext<TaskContextType>({
   tasks: [],
-  deleteTask: (id: string) => { },
-  saveTask: (newTask: TaskType) => { }
+  task: { id: 1, active: true, date: "", time: "", title: "" },
+  deleteTask: (id: number) => { },
+  saveTask: (newTask: TaskType) => { },
+  getTask: (async (id: number) => {
+    return { id: 0, active: true, date: "", time: "", title: "" }
+  })
 })
 
 
 export const TaskContextProvider = (props: any) => {
   const [tasks, setTasks] = useState<TaskType[]>([])
+  const [task, setTask] = useState<TaskType>({ id: 0, active: true, date: "", time: "", title: "" })
+
+
+  useEffect(
+    () => {
+      (
+        async () => {
+          const { value } = await Storage.get({ key: 'tasks' })
+          setTasks(JSON.parse(value!))
+        }
+      )()
+    },
+    []
+  )
 
 
   async function saveTask(newTask: TaskType) {
@@ -39,16 +57,26 @@ export const TaskContextProvider = (props: any) => {
       })
     }
 
-    setTasks([...tasks, newTask]) // Update task state
+    setTasks([...tasks, newTask].reverse()) // Update task state
   }
 
-  async function deleteTask(id: string) {
-    // ....
+  async function deleteTask(id: number) {
+    const newTasks = tasks.filter((task: TaskType) => task.id !== id)
+    setTasks(newTasks)
+    Storage.set({
+      key: 'tasks',
+      value: JSON.stringify(newTasks)
+    })
+  }
+
+  async function getTask(id: number) {
+    const newTask = tasks.find(task => task.id === id)!
+    return newTask
   }
 
 
   return (
-    <TaskContext.Provider value={{ tasks, saveTask, deleteTask }}>
+    <TaskContext.Provider value={{ tasks, task, saveTask, deleteTask, getTask }}>
       {props.children}
     </TaskContext.Provider>
   )
