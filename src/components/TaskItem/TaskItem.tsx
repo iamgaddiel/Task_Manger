@@ -1,5 +1,4 @@
-import React from 'react'
-import { IonCard, IonIcon, IonItem, IonItemOption, IonItemOptions, IonItemSliding, IonList, IonText, IonTitle } from '@ionic/react'
+import { IonIcon, IonItem, IonItemOption, IonItemOptions, IonItemSliding, IonText } from '@ionic/react'
 import { person, trashOutline } from 'ionicons/icons'
 
 type propType = {

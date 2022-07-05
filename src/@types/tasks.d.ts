@@ -13,3 +13,4 @@ export type TaskContextType = {
   deleteTask: (id: number) => void;
   getTask: (id: number) => Promise<TaskType>;
 };
+

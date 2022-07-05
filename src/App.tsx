@@ -52,7 +52,7 @@ const App: React.FC = () => {
               <Redirect to="/home" />
             </Route>
             <Route component={AddTask} exact path='/add-task' />
-            <Route component={TaskView} exact path='/task/id' />
+            <Route component={TaskView} exact path='/task/:id' />
           </IonRouterOutlet>
         </IonReactRouter>
       </IonApp>
